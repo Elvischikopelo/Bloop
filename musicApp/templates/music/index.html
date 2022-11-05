@@ -1,0 +1,50 @@
+{% extends "music/base.html" %}
+
+{% block content %}
+        <div class="container">
+            <div class="col-md-13">
+                <form action="" method="get" role="search" class="form-horizontal">
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <input type="text" class="form-control input-lg" name="q" style="border-radius:5px"
+                        
+                        value="{{ request.GET.q }}" placeholder="Search Songs">
+
+                        <span class="input-hroup-btn mx-2">
+                            <button type="submit">Seacrch</button>
+                        </span>
+
+                        
+                        
+                    </div>
+                </div>
+
+            </form>
+            </div>
+        </div> 
+
+    #RECENT Songs
+    {% for songs in recent_songs  %}
+    <div class="hero">
+        <div class="container">
+            <div class="music-app">
+                <img src="{{ songs.song_img.url }}" alt="Image">
+                <button class="btn-prmary play"> Play </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+       
+    {% for songs in all_songs  %}
+    <div class="hero">
+        <div class="container">
+            <div class="music-app">
+                <img src="{{ songs.song_img.url }}" alt="Image">
+                <button class="btn-prmary play"> Play </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  
+{% endblock content %}
